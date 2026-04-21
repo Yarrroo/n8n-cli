@@ -284,9 +284,7 @@ class FrontendApi:
         try:
             resp = client.get("/types/nodes.json")
         except _httpx.HTTPError as exc:
-            raise ApiError(
-                f"network error fetching node-types: {exc}", backend="frontend"
-            ) from exc
+            raise ApiError(f"network error fetching node-types: {exc}", backend="frontend") from exc
         if resp.status_code != 200:
             raise ApiError(
                 f"frontend /types/nodes.json returned {resp.status_code}",
@@ -295,9 +293,7 @@ class FrontendApi:
             )
         data = resp.json()
         if not isinstance(data, list):
-            raise ApiError(
-                "frontend /types/nodes.json did not return a list", backend="frontend"
-            )
+            raise ApiError("frontend /types/nodes.json did not return a list", backend="frontend")
         return cast(list[dict[str, Any]], data)
 
 

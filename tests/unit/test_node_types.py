@@ -51,9 +51,7 @@ def test_resolve_latest_version_hits_live_api_and_persists_cache(
         {"name": "n8n-nodes-base.httpRequest", "version": [3, 4, 4.2]},
         {"name": "custom.myNode", "version": 2.5},
     ]
-    v1 = node_types.resolve_latest_version(
-        "custom.myNode", fapi=fapi, instance_name="ams"
-    )
+    v1 = node_types.resolve_latest_version("custom.myNode", fapi=fapi, instance_name="ams")
     assert v1 == 2.5
     fapi.fetch_node_types_catalog.assert_called_once()
     assert cache_file.exists(), "map should be persisted for next run"
