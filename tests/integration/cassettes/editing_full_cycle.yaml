@@ -1,0 +1,1049 @@
+interactions:
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[],"connections":{},"settings":{}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: POST
+    uri: https://n8n.example.com/api/v1/workflows
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/42QTWvCQBCG/8uesyWJSUz2JpaCUFHoB6Wlh3Ez6tJ1NuyuERX/e8faYumpt513
+        h+d9mKMg2KBQgmqS2hoZMUTZrSHgQCSCXItBqLf3RGhHhDoaRxwcT4kIGKOh1XkSGqxFP3fW6D3D
+        ds5/LK3bhTvvNg9cMNsReuZBD8bCwuKEpuO5UEuwAZkFDO7xe05Ejz5w0aRlVr5s0mwx0BIaBFlg
+        XclaD0uZDat8kTcFpEXFZHPena2nTXloDi+0f+rvqeSc/bU33dlbKNpay+IRotG3EOEn2eD13Rn6
+        /XUxe74KXeJt10LEdhTPhmleybSQefaYVSpv1KC+qdPyldu1x/+smTDyes097d8TjN2WIp9OZYmI
+        3qxW6L8iodLTJ7PaYuC8AQAA
+    headers:
+      CF-RAY:
+      - 9efdc4cd4c461577-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:38 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=rdFljkHVtGIbGSn6lk%2F%2BrKgNZMqHVxEnAv2m%2B8HR6DRQaDPNxk%2Bv1hgHKepv6XEpAZndbKkc%2FXwPgR7a7F5VfMnjsECUKIP%2Ft0xcdoRyGKGaKdQDKr1aUV4ZnEfKhdIkDG0rZKlAGQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"1bc-T2Aed23XfF6QByUWF5pgR0p3PJ8"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/61SXWsbMRD8K0HPlrnv0x2h1Li0mMbENGkJDX1Y63S2anl16GQbx/i/d8/1R0Jd
+        6ENfhDSjWY12Z8dWTQVeVQPPShYFUcaDhEfhY5iVUVHGoi+C9DvrMenUv1zTFfH383GRvhQvT7j9
+        ur7DlHCEpSIGBXJpNPeq9byZQ6tiIivVSqcbry2yElfG9BhIr9ekqMG0isq2AyfnhFRnCC3JWPn8
+        g7xZRCU7OQG7fY+1ynuNs+7EJBij3MQaLbfkYGPdojZ20350dvlAru43qByZgDVoA1OjRjgeTo7P
+        dLU8eC0/gIeTt6W67BuNr6m1ci3ZGHVdiOoiCKex5FAo4IkSGRcyT3mYZ9E0KhIIkoydfvrtInxT
+        aWhX6MlfGfaYd3o2U+4AsTIga3NwXUeed/95is4a9apXpT326ASM/jLlxtmfNIgDPZnWgwQXd+Mv
+        Mz/8NBYXupvKn34jHgWPYVLGeZmIfiqK637P17IyiPuiyM+pu/LgMXWfKRgekCJxM9kaje1Cb29u
+        oVpqfL+0Fjfgqj4q/44kftt0kobabxFMV1xeYnklqQeL1h3+LPIwhjqJeRJmtAQp8KKOEx5HCkQ+
+        DaUEwfZ7iqyH2TG8b+b/u+j+F6zpVZCWAwAA
+    headers:
+      CF-RAY:
+      - 9efdc4ce48b6234c-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:38 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=1a3sUDco7ST%2FpkdVzNTnBOt774312TJfDCdAyRTgvgRtFDNOVrK%2BGVRCpi0C830NRCoA6%2BG%2BZWz5iaAEJGN%2BLpFz3j23hNlZhdDOWw2G9S2%2BxEdj%2FUedxpPAmErFdC17evZ4iG0bsQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"396-//gwJe/ntyBEUEIw9idqATmaN6U"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0.0,0.0],"parameters":{}}],"connections":{},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":null}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '318'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/31Qy07DMBD8F5/jKknj1M4NgZCQQCDxEKLisHbc1sK1I9ttVar+O5uE8jpws2dn
+        Z2bnQDZdC0m3Z4k0pMzLmuYVLYuHom5K0UzFpCjqF5IRFfQ/ND7hOetppsX57epGsHfx/uz2j9tr
+        xxB3sNY4cdxRZQ1NOibarSDqKQ5bHVUwXTLekcZtrM0IqGS2uLEAGzXKxrOgVoi0X5DzuEaa+WH0
+        lKWu1bRe0Fmba1pVsqSwEC0V0NYzxmReleo7x32CkPCb9t0p1qBHJUaarMFtwD4Es1zq8Ml60iEO
+        +YqMdD6aMew8z/JXBCCgbkIKaQ7HIyLKO6dVTxqgjESdknHL/kcUWKvDnbdG7dF958PbwvpdvAx+
+        fY9Ctzs3+MIWjAVp9ZW7Ob/7vLzXSpCMuoAEp7rQ/OvdGfdztB2DX/UlMaZqLipJORSMVgIEFbOK
+        UcllJWdcAOc1OZX/9L34S+ncbxyeSpoSmxk7GiDS5AhAf+L89Y/IKHH8ABTUAFZuAgAA
+    headers:
+      CF-RAY:
+      - 9efdc4cf4a3d158e-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Fn2CKLPaz0faZ8daF25YFFTaofWnteLsFewgQofYqeKh79jFA1UustXgqaNM%2BWizyJrkIALgwh%2FbHunFEno%2Bd0HAoJJ%2BfIoZDf4EaVi3ufBy3XlQcWpq0HvC6NBxCLkn19jw%2FVD2OQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"26e-LWSJr13Ja3v4iZpqusdLNpv/lXA"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41TXWvbMBT9K0XPUfCHbEtmjJWOjbKGhrUrY6UP17KcaFUkIysJaeh/37Xz1W1d
+        2UuIz7069+jcoy1ZtjUEVZ8HUpIkSnIaMZrEt3FeJqJMxTiO8x9kRKRXb7TxMY+yvk3XWL+eT0T2
+        JJ6+28231ZXNELewUFix3FJpNA2qC7SdQ6dSLNaqk163QTtLSrs0ZkRABr3CEw2YTiFtd+7lHJH6
+        CFmHx0h5v93NrBKVyzRvaFFHijJWJRQaUVMBdV5kWRWxRJ503ATwAT/Dpj3IGvhohZLGC7BLMLde
+        z2bK77vulO8GffGItK7TO7H30Sh6QAA88gZsIeX2+RkR6axVsm8aoBHpVAjazvovIsEY5afOaLnB
+        6WvnHxvj1t0n7xY3SHS9tsNcWIE2UBl1aScX0/3Ne64AQcuPEOBgFw4//m+1fVla7YRf9iZlmcy5
+        YBXlEGeUCRBUFCyjFa9YVXABnOfkYP7d6eBvTBduafGqpEzQmZ1HA0TKCKXNwfdLwrW8HaxjYv4z
+        WN4Z9cKr0u09OgCX/whe691PXMRQnlbNObOPV5Ovs3DxecJP5X4rf+tNaBLdxqxMi5LxccbF63qP
+        bXkZpWMuiuNDeGXgPoBfMBgBLEbibLox2naPenP2DuqFth8Wztk1+HpsVXh/CmmL9jsLpieXp5fy
+        yuMZJDo/3JkXcQoNSymLc/yJMqCiSRlNEwW8qGIpgZMhsgH6dN4//LH/HenzL+QVejkpBAAA
+    headers:
+      CF-RAY:
+      - 9efdc4d04bb52346-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=cYC6m6XjIDaBMBINTBGPmpxQZ5XKpkV7bDfrmQTeO1z6t6r2Hz08moBt6meoZvEqf%2B%2F%2Bej8sjLBQB%2Bet7gRU2KFT5P8J7pn50rpnFRiBks3dVR%2BbkCbD8KWsCBzyNkTzkQOpkWNliA%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"429-7adFO0lsov4g8Y5tLSZkLW5XYL8"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}},{"id":"b126a8de-5cf8-4e2e-8e6b-3ae60a83a5b3","name":"Seed","type":"n8n-nodes-base.set","typeVersion":1,"position":[240.0,0.0],"parameters":{"assignments":{"assignments":[]}}}],"connections":{"Start":{"main":[[{"node":"Seed","type":"main","index":0}]]}},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":null}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '549'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/32Sy27bMBBF/4Vr0aCphyXtggQFAjRIgKRBUcOLETmyidKUQNF2HUP/3pEU59E0
+        2ZHzuDxzOSe2azUE1BeBlUwKmXGRcDl/mGelLMq4mCUy/cUipjx+UZbPcjGWGU35281NkT4VTz/d
+        8cf+u0sp7mCLlHG548oaHrALvN1AhzElNXbKmzaYxrHS7ayNGKhg9tRRg+2QZLsLrzYU0S8h11Ab
+        K5en6c1KYqbirOYLLZAnSSU51IXmBehskaaVSKR65bgP4ANdw7E9Y416vCKk2RbcDuyDN+s1+ueq
+        R/TdyDePWNt0ZoJdikisKACedAOVsPLU99GZaS4zyDXyVNU5T1AizzGreAyYCchjSKv4DRPSdJ8h
+        dRi+BpHJf1AYdJ1Zuy268PG6XPV9Tx2qcQ7VIDPWTNbQYQtmECaDB44PgGOafsZp/MNK0a9ILmLE
+        GYxbj0oKrEV/11ijjtRwaPzv2jaH7ptvtvcEeXtwo72wB2Ohsnjtbi7vnj940AoQjLqCAOetoMFe
+        zq1xb1P7yZbrwfc0X9QxCuAS64wntdQchAaOcpGjqhKc47AL0449vja+U7psdo5sZGVMI0+rMIZo
+        VgrAenTwH5FJov8LAhNJmFUDAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4d12cb02346-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=B1XZz7EAWIlJ0BApY2TsVPcijaIHl1mwk%2B5s1%2BT9qT1s7tfrsnShOpVKoBsGnpKP080jcLXMMKrWhhY2RoTLuDDAcG8eEEDogFRb7XTiOpSY%2FvcTY5Zgg6IxtCjKKh%2FvRKS6vz80IA%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"355-xECeaBlUbriFFLggX7/cjKQvBEc"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41U227bMAz9lcHPUWDLN9kYhhUdNhRr0GDtimFFH2iZTrQ6kiErydIi/z7azqVb
+        02Ivhk1Sx4eHh3rylk0JDssz5+Ue93nC/Ijx4CZIcp7lYTaOePzTG3nS4htlYiz8vkyVlL+aT7L4
+        MXv8oTffV5c6priGBVJGC81krZjD1rFmDi2GlCyxlVY1Thnt5XpZ1yMPpFMrOlFB3SLBtmdWzilS
+        HkLa0DEvv3sa/llwTGSYVCwtfWRRVHAGVVayDMokjePCj7g88rh2YB19uk2zp9XjsYIojRegl1Df
+        WDWbod1V3aJte37ByGtMqwayd/7Iv6cAWMJ1VOLlT9vtaM8p4AmIElksK8Ei5MgEJgULARMfRAhx
+        ET7jhNTda5RadG8T4dEJKh60rZrpBWr38vPufrvd0glptEbZwfQ1gzT0sgDVAZPAHY8XBPs0TUaX
+        +NvL/e09wY084umUnvVIEuoa7dTUSm7owNrYh6o26/azNYtrInm11r28sAJVQ1HjhZ6cT3cD7rAc
+        OCU/gYO9K6ixw3uj9PPUapDlotM9FmkVog+MY5WwqOIlA78EhjwVKIsIA+y8MHjs9njwL6Rzs9Qk
+        o5eH1PJghT5EvRK1OdjOiyTO2/tzWIz/3B9ranymVW52Gu0DF6/sV2PNLxpin54W1VmkHy4n32bu
+        /MtEHNPdVF7y5Yz7N0GUh2keiXEsstN8D2VJ7odjkaWHfT/xw52nv5KpHGiyxLvppla6fVCbd++h
+        XCj9cWGMXoMtxxrdh6OvGpLfaKg7cHm8EE7cET1FY/ueRRqEUEUhi4KEHn4MLKvCiIUcQaRFICUI
+        r7e7g1lv/n/mP4Bu/wCwTDdqEAUAAA==
+    headers:
+      CF-RAY:
+      - 9efdc4d2290a2353-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bAqtA%2F7swXHcW8YIbCcsaSULAlq8sftqtC7MQLK2ZM1S%2FY%2FyESftuC9qSTTqVKqVqhlPp1dnvci5EFy8dPEy%2F0mrlt63FVpUicVPv3ZW%2Fj3btgmYxL3Y9LTnjG7mPR0IASlxnYBWkQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"510-nmac5kzmHX3edt96MI5HUV7KYkk"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41U227bMAz9lcHPUWDLN9kYhhUdNhRr0GDtimFFH2iZTrQ6kiErydIi/z7azqVb
+        02Ivhk1Sx4eHh3rylk0JDssz5+Ue93nC/Ijx4CZIcp7lYTaOePzTG3nS4htlYiz8vkyVlL+aT7L4
+        MXv8oTffV5c6priGBVJGC81krZjD1rFmDi2GlCyxlVY1Thnt5XpZ1yMPpFMrOlFB3SLBtmdWzilS
+        HkLa0DEvv3sa/llwTGSYVCwtfWRRVHAGVVayDMokjePCj7g88rh2YB19uk2zp9XjsYIojRegl1Df
+        WDWbod1V3aJte37ByGtMqwayd/7Iv6cAWMJ1VOLlT9vtaM8p4AmIElksK8Ei5MgEJgULARMfRAhx
+        ET7jhNTda5RadG8T4dEJKh60rZrpBWr38vPufrvd0glptEbZwfQ1gzT0sgDVAZPAHY8XBPs0TUaX
+        +NvL/e09wY084umUnvVIEuoa7dTUSm7owNrYh6o26/azNYtrInm11r28sAJVQ1HjhZ6cT3cD7rAc
+        OCU/gYO9K6ixw3uj9PPUapDlotM9FmkVog+MY5WwqOIlA78EhjwVKIsIA+y8MHjs9njwL6Rzs9Qk
+        o5eH1PJghT5EvRK1OdjOiyTO2/tzWIz/3B9ranymVW52Gu0DF6/sV2PNLxpin54W1VmkHy4n32bu
+        /MtEHNPdVF7y5Yz7N0GUh2keiXEsstN8D2VJ7odjkaWHfT/xw52nv5KpHGiyxLvppla6fVCbd++h
+        XCj9cWGMXoMtxxrdh6OvGpLfaKg7cHm8EE7cET1FY/ueRRqEUEUhi4KEHn4MLKvCiIUcQaRFICUI
+        r7e7g1lv/n/mP4Bu/wCwTDdqEAUAAA==
+    headers:
+      CF-RAY:
+      - 9efdc4d31fd92345-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=FOc%2FFQWz9MYfbDYf3NVoAWKI0W4RW2Cjm0YYVchbu52qIzv6cmncnWNHLf4QqJbf41SnbFtdnRygPFya8%2FGNwqv3ptqFxsZRRScegPQn1ik0HtBbbLrGwH%2B8TWKpFx3EN2CvlDb%2B7w%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"510-nmac5kzmHX3edt96MI5HUV7KYkk"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}},{"id":"b126a8de-5cf8-4e2e-8e6b-3ae60a83a5b3","name":"Transform","type":"n8n-nodes-base.set","typeVersion":1,"position":[240,0],"parameters":{"assignments":{"assignments":[]}}}],"connections":{"Start":{"main":[[{"node":"Transform","type":"main","index":0}]]}},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":null}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '555'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/32S227bMAyG30XXVqDIh8i+KzoMKLCiBZoVw4Jc0JLsCLNlQ1KSpYHffbTdNDt0
+        vZN+kr8+UjyTfa8gaHUTSEE44xllCeXL9TIreF7E+UKssu8kItLpD9LEQrB0TDMK4w+7+zx9yV++
+        2dPXwxebom6h1RixwlLZGBq0D7TfgdcxBpX20pk+mM6Swu6bJiIggzlgRQWN12jrb5zcoaLeJNth
+        GSk25/nNkutMxllFV4ppmiQlp1DliuagslWalizh8srxFMAFvIZTf8Ga/GiJSIsW7B6atTN1rd1r
+        1rN2fuJbRqTvvJlhNyxiWxTAoW/AFFKchyG6MC15BkJpmspK0ERzTYXOShqDzhiIGNIyvjKtHVhf
+        da79L5fX4WManrzDQ8B7U9tW2/DvdbMdhgErZGetlqPNlDPPBw8tmNEYpzxyvE855eAfWaV/koIN
+        W/SMCMIGY+vJTkLTaPfYNUaesODYuR9V0x39Z9e1T0j6cLTToOEApoGy0Xf2/vbx9atHrwDByE8Q
+        4LIf2N3buTf299Bhns3d+AMqFxXolNNKZZwmTApaMsFpuuIiqZiI89W4FfO2PV8L/3C67fYWZ0mK
+        BFuel2KSsFcUoJ7G+JfJbDH8AhHj9axfAwAA
+    headers:
+      CF-RAY:
+      - 9efdc4d3fc46157c-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:39 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=9MEU6P3cYxUBRiIl2g4sNtZHVcAQXXV9W7uaJSuLzFFTZmTcpNzf2u43DT4MwXv%2FDvCpUhfLSDeSwxrZbqSgZHMyVY%2FJ9gyuy8w%2F7Qp0PPjJxqVZAZy1q0YG2Lr95v7j1PEm%2BWlCBQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"35f-9dObGuUXI6zEYnALCq/JgoWsbJg"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41UXW+bMBT9KxPPcWSMAYOmaVWnTdUatVqzalrVh4sxiVewkXGSpVX++y7kq1vT
+        ai8I7sfh+Nxz/RQs2hK8Ks98kAeMsoRQTlg4DZOcZXmUjUWa/AxGgXTqjTIxFjTuy3SJ+av5JIsf
+        s8cfZv19eWlijBtoFGaMMETWmnjVedLOoVMRJkvVSadbr60JcrOo61EA0usldlRQdwphuzMn5xgp
+        DyFjsS3I7562/yyYSmSUVCQtqSKcF4xAlZUkgzJJ47ignMkjjxsPzuOnX7d7WgMeKZDSuAGzgHrq
+        9Gym3K7qVrlu4BeOgtZ2ekv2jo7oPQbAIa7HkiB/2mxGe04hS0CUisSyEoQrpohQSUEiUAkFEUFc
+        REdOUwemq6xrXuXVKf82G8ZP8Amg6/TMNMr4l59395vNBjukNUbJHmao2eqDLw3oHhhV7nmcZjnU
+        4IxMqX4HOd3cI+YoQLJem9kAJ6Gulbu2tZZrbFhZ91DVdtV9dra5QaZXKzMIDUvQNRS1ujCT8+vd
+        qHssD17LT+Bh7w883eG91eZ5arnV5qKfQJmJClTMSFUmjHAqBSmoYCROmeAVFVGW9q7Yuu322PgX
+        0rldGNQyyDkeeWuKIYRnRWpzcL0rUaG3N+mwIv+5Sc7W6plWud1ptA9cvLJprbO/cJJD+rqozrh5
+        uJx8m/nzLxNxTPdTecmXEUanIc+jNOdiHIvsNN9DWZLTaCyy9LD5J364c/dXdJYHg5Z4d72uteke
+        9PrdeygbbT421poVuHJslP9w9FWL8lsDdQ8uj1fDidtioGjdcGaRhhFUPCI8TPBBYyBZFXESMQUi
+        LUIpQQSD5z3Mhg34Z/5b0M0fQYj4QxoFAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4d4ffde217f-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2BiPtybR3ohFkbAn%2FTHRogmEWXy02jP4b2hqUF9ygV1bhZv9rOgj8WNphfPbR0nhDip9%2Fd%2FqlEU69qPgdxNbh59Yt4n0dXB13f5fBgK37xoEQMC8w3DJGupZf70EdRfsdhFeUbQc1zg%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"51a-eaXFcxF6vhXyUfohMDC0oYhHPr0"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41UXW+bMBT9KxPPcWSMAYOmaVWnTdUatVqzalrVh4sxiVewkXGSpVX++y7kq1vT
+        ai8I7sfh+Nxz/RQs2hK8Ks98kAeMsoRQTlg4DZOcZXmUjUWa/AxGgXTqjTIxFjTuy3SJ+av5JIsf
+        s8cfZv19eWlijBtoFGaMMETWmnjVedLOoVMRJkvVSadbr60JcrOo61EA0usldlRQdwphuzMn5xgp
+        DyFjsS3I7562/yyYSmSUVCQtqSKcF4xAlZUkgzJJ47ignMkjjxsPzuOnX7d7WgMeKZDSuAGzgHrq
+        9Gym3K7qVrlu4BeOgtZ2ekv2jo7oPQbAIa7HkiB/2mxGe04hS0CUisSyEoQrpohQSUEiUAkFEUFc
+        REdOUwemq6xrXuXVKf82G8ZP8Amg6/TMNMr4l59395vNBjukNUbJHmao2eqDLw3oHhhV7nmcZjnU
+        4IxMqX4HOd3cI+YoQLJem9kAJ6Gulbu2tZZrbFhZ91DVdtV9dra5QaZXKzMIDUvQNRS1ujCT8+vd
+        qHssD17LT+Bh7w883eG91eZ5arnV5qKfQJmJClTMSFUmjHAqBSmoYCROmeAVFVGW9q7Yuu322PgX
+        0rldGNQyyDkeeWuKIYRnRWpzcL0rUaG3N+mwIv+5Sc7W6plWud1ptA9cvLJprbO/cJJD+rqozrh5
+        uJx8m/nzLxNxTPdTecmXEUanIc+jNOdiHIvsNN9DWZLTaCyy9LD5J364c/dXdJYHg5Z4d72uteke
+        9PrdeygbbT421poVuHJslP9w9FWL8lsDdQ8uj1fDidtioGjdcGaRhhFUPCI8TPBBYyBZFXESMQUi
+        LUIpQQSD5z3Mhg34Z/5b0M0fQYj4QxoFAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4d5ed342353-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=IzDFtpyypBfhI4xGhjYtzEDDosqlRFZv8X40jqlJvQZI1AqXxi4TctcvhgFAdPzddEYWBaxABbWjlqMzJrgrNZFPNvgTBzenjC97cknvU3aYe%2Fx1Q3YEfGdOxrFi%2FZf7lyTNDEhqrA%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"51a-eaXFcxF6vhXyUfohMDC0oYhHPr0"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}},{"id":"b126a8de-5cf8-4e2e-8e6b-3ae60a83a5b3","name":"Transform","type":"n8n-nodes-base.set","typeVersion":1,"position":[240,0],"parameters":{"assignments":{"assignments":[]}}}],"connections":{"Start":{"main":[[{"node":"Transform","type":"main","index":0}]]}},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":{"Start":[{"json":{"hello":"world"}}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '589'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/32Sy27bMBBF/4Vr0aCphyXtghQFAjRIgLhBUcOLEUnZbClKIGm7jqF/70jyA0iT
+        7sh53Dm8nBPZdRKCkneBlIQznlGWUD5fzrOSF2XCZnG8+EkiIpz6vCzOZzlLhzItMf+0fSzSt+Lt
+        hz1+33+zKcYtNAozNrdUGE2D8oF2W/AqxqRUXjjdBd1aUtqdMREBEfQeO2owXqGsv3NiixF5DdkW
+        20i5Ok0zK64yEWc1XUimaJJUnEJdSFqAzBZpWrGEixvHSwAX8BqO3QVr1KMVIs0asDswS6c3G+XO
+        Va/K+ZFvHpGu9XqCXbGIrTEADnUDlpDy1PfRhWnOM8iloqmoc5oormiusorGoDIGeQxpFd+Ylg6s
+        r1vXfMrlVfg/DU8+4CHgvd7YRtnw73W17vseO0RrrRKDzFgz+YOHBvQgjC4PHB9TjjX4R1aqP6Rk
+        /Ro1I4KwQdvNKCfAGOWeW6PFERsOrftdm/bgv7q2eUHSp4MdjYY9aAOVUQ/28f75/NWDVoCgxRcI
+        cNkPfN313Gk7pa7ciPvLD46cyFYZ004zjST4VpTbT+49DH8ki7wGlXJay4zThImcViznNF3wPKlZ
+        HheLYW+mfXy9NU6jz0r37c6i26RM0ZRpbcYQuoEB2IxGvxOZJPq/7tHEeIEDAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4d6d8532352-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=CfipOXw31vLRYguQFwWyDzjL2lZztxd2OowgERLvQLmggTyvmaPc6FZ7RQhnD%2Bnwt89HAlD2YFWhfPdBkoK94%2Fs0H92coJx29kdFq%2FXREGcAyVm%2Bra2PeOpaqLiTTafDz6rIfW1CBQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"381-d3b1HkGchR5blcIQ82inhLBjVIA"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/42UbWvbMBDHv0rR6yjY8pNsxljp2ChraFizMlb64izLiVpFCrKSLA357jvbeRhr
+        WvbG2Henv37+605bslxU4GV16UlBWMBSGsSUhZMwLVhexMEwirJfZECEk2+XRXzIg6QtUxXmb2ej
+        PHnJX36azY/VjUkwbmAuMWO4oUIr6mXj6WIGjYwwWclGOLXwyhpSmKXWAwLCqxWuqEE3EmWbSydm
+        GKmOIWNxGSketv2eJZOpiNKaZlUgaRyXjEKdVzSHKs2SpAxiJk4cdx6cx0+/WRywOj1aItJwDmYJ
+        euLUdCrdvupeuqbjCwdkYRvVwz4Eg+ARA+BQ12MJKba73eDAFLIUeCVpImpOY8kk5TItaQQyDYBH
+        kJTRiWniwDS1dfM3uRrp36dh8RkeAk2jpmYujX/9+fC42+1whbDGSNHKdDW9P/gyB9UKo8stx3nK
+        rgbPyFTyNymC3SNqDgjCemWmnZwAraUbW63EBhesrXuutV03X5yd3yHp7dp0RsMKlIZSy2szuhrv
+        j7rV8uCV+AweDv2Bf3d8XyjTp47ciPvUtI5syUxqbfs9dUXwX1Fu1bt33Z5RlfMaZMJoXaWMxoHg
+        tAw4o0nGeFwHPMqztm/6frw/Ley33itd2aVBt0mRoCl923QhdAPhZ+DavkWod2ftNET/OWvOavmX
+        m4Xdu3gIXL8xiwtnn/Csu/S4rC9j83wz+j71V19H/JRuzXvNyygLJmFcRFkR82HC8/O8x7K0CKIh
+        z7Pj3XBmw33/f8Pe82CwaS7GG61M86w2Fx+gmivzaW6tWYOrhkb6j6fOW6D91oBuxcXp8jhzn3SI
+        1nX/zLMwgjqOaBym+AgSoHkdxTRiEnhWhkIAJ91UeJh2M/LP+feiuz/74tlDPAUAAA==
+    headers:
+      CF-RAY:
+      - 9efdc4d7da062342-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=cOP%2FoLJ%2BrWxkZB2AESd8VgE%2Fp5AouEUU5StZfETYCvb1Vi2FvdBzdGC5lUcZlIA0K4tj50yOT7geGa8B1CkinVDXbyh%2FRsKPMnLbBSGvswSJwb9gEkI2Z%2FrvOn4A3Sgq1J741EtSBQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"53c-rED5Cb3+7PsnAi7wM1FYsV9ttUo"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/42UbWvbMBDHv0rR6yjY8pNsxljp2ChraFizMlb64izLiVpFCrKSLA357jvbeRhr
+        WvbG2Henv37+605bslxU4GV16UlBWMBSGsSUhZMwLVhexMEwirJfZECEk2+XRXzIg6QtUxXmb2ej
+        PHnJX36azY/VjUkwbmAuMWO4oUIr6mXj6WIGjYwwWclGOLXwyhpSmKXWAwLCqxWuqEE3EmWbSydm
+        GKmOIWNxGSketv2eJZOpiNKaZlUgaRyXjEKdVzSHKs2SpAxiJk4cdx6cx0+/WRywOj1aItJwDmYJ
+        euLUdCrdvupeuqbjCwdkYRvVwz4Eg+ARA+BQ12MJKba73eDAFLIUeCVpImpOY8kk5TItaQQyDYBH
+        kJTRiWniwDS1dfM3uRrp36dh8RkeAk2jpmYujX/9+fC42+1whbDGSNHKdDW9P/gyB9UKo8stx3nK
+        rgbPyFTyNymC3SNqDgjCemWmnZwAraUbW63EBhesrXuutV03X5yd3yHp7dp0RsMKlIZSy2szuhrv
+        j7rV8uCV+AweDv2Bf3d8XyjTp47ciPvUtI5syUxqbfs9dUXwX1Fu1bt33Z5RlfMaZMJoXaWMxoHg
+        tAw4o0nGeFwHPMqztm/6frw/Ley33itd2aVBt0mRoCl923QhdAPhZ+DavkWod2ftNET/OWvOavmX
+        m4Xdu3gIXL8xiwtnn/Csu/S4rC9j83wz+j71V19H/JRuzXvNyygLJmFcRFkR82HC8/O8x7K0CKIh
+        z7Pj3XBmw33/f8Pe82CwaS7GG61M86w2Fx+gmivzaW6tWYOrhkb6j6fOW6D91oBuxcXp8jhzn3SI
+        1nX/zLMwgjqOaBym+AgSoHkdxTRiEnhWhkIAJ91UeJh2M/LP+feiuz/74tlDPAUAAA==
+    headers:
+      CF-RAY:
+      - 9efdc4d8cd4f158c-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bzhdyYj0o44IOmidA7agV0KIB5p58izICYvTSCgVmXqCbw1trEWS04tI%2FXOwI9uLFxYeA8MLyMWeh7cTOpdf2aBSpkIogTqYqIGyPRJQ%2BnkwwRXXXUJ4W%2F7UpM5k0saU3WShGcvTGQ%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"53c-rED5Cb3+7PsnAi7wM1FYsV9ttUo"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}}],"connections":{"Start":{"main":[[]]}},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":{"Start":[{"json":{"hello":"world"}}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '369'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/3VR0WrjMBD8Fz1bwZZtxfZb6VEoXGmhvXJcyMNakhP1FMlISkIa/O+3tpMUCve2
+        mp2dnR2dyb6XEJW8i6QhLGWcpgVl2VvGG1Y3RbpYVvwPSYjw6v+0vFpUaTnStMT+8/apLj/rz9/2
+        9Ovw05aIW9gp7NjKUmE0jSpE2m8hqBybUgXhdR+1s6Sxe2MSAiLqA050YIJC2XDnxRYReYOswzHS
+        rM7zzpYpLnLe0aVMFS2KllHoaklrkHxZlm1aMPHl4zWCj/iMp/5qa9KjLVpa7MDuwbx5vdkof2G9
+        Kx8mf1lCehf0bHaVJukaAfCoG5FCmvMwICKctUqMpBG67MNiB3ocW63Xw5CQoGLUdjNRBBij/Isz
+        WpzQ0tH5v51xx/Dg3e4V1Z+PdjIDB9AGWqMe7dP9yyWOUStC1OIHRLhmiI5uda/t3Lp5weA+wnjD
+        mWyVMW7eaSRB/yh3mO99HLPNSybLjDNa86qgRVfUtBI5o5xBJdscOsiW5Ppn71+D8+qL0r3bW0yI
+        NBwDnaOdINKkCMAYwmr9TWSWGP4BtLhizaUCAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4d9bb311593-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=yYhpF4WsWDzPLTXGBkHEDrh00odKrLOhByDaInJ0TBu5mSTQVxUhTkpUDjX1K9SGPb6pkDhDsA1sVpGw4zvC1BpwOidhPJLFPfU7i9NQBewHO0YYsANXYl2D6%2F9Reak%2Fz8afI1ExHg%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"2a5-Owph6B4VG3ZDgJSYzQeSF4ODwWA"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41Ta2vbMBT9K0Wfo2DL8pMxVjo2yhoa1q6MhXy4luVErSIZWUnIQv77ru08xtaO
+        fTHyfZx7dO7RnqybCrysrj0pCAtYQgNOWfgYJgXLCx6M0yz5QUZEOPl2WZSNsyDuylSF+fvlJI9/
+        5j+/m923zZ2JMW5gJTFjMkOFVtTL1tNmCa2MMFnJVjjVeGUNKcxa6xEB4dUGO2rQrUTY9tqJJUaq
+        c8hYbCPFbD/MLJlMRJTUNK0CSTkvGYU6r2gOVZLGcRlwJi48Hjw4j79+15xo9Xi0RErjFZg16Een
+        FgvpjlVP0rU9v3BEGtuqgewsGAVzDIBDXI8lpNgfDhgR1hgpuqIudJyHhxWorm02nx8OI9JK75VZ
+        9CUCtJZuarUSO6S0te6l1nbbfnJ29YDo91vTk4ENKA2llrdmcjM9ytFhefBKfAQPJw2R0fncKDOk
+        zlxQuOe2u8OeLKXWdpipK4L8EW4z3Pe20zaKWRWHCaN5knHKa57TTESMJgyyqoyghjAlp509XRqH
+        0UekG7s2qBApEhR0kLYPkSJA8ktw3W6R1D/9eDHaf/rRWS1/U7OwRxVPgds3/No4+4z769PTsr7m
+        5uVu8nXhbz5Psku6E+9vvoyy4DHkRZQWPBvHWf4633NZUgTROMvT8/t5ZeDRt1/QTx4MmuZqutPK
+        tC9qd/UOqpUyH1bWmi24amykf3/xdoPyWwO6AxeXB/bKm+spWtffOUtD3CuPKA8T/AQx0LyOOI2Y
+        hCwtQyEgI73TPXT+nc3/2P8AevgFN4b1FWAEAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4daae5d1596-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:40 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2BtbdP4%2FZ%2Bmi5gbYfdY8uxFH1tC04n3fMs27%2BUIBLWRsCOVYikuzzcAm70TkbvKPBgCeW5pdVPoWukMcR%2BPhv1%2BvpH%2FK6iaH%2BgpKgbcVUlIr9EqqDal5gLEnLPTSErPtCcH20TfH6wA%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"460-Yss4zt1Q0f2vPPD8rczoVBR3VR4"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: GET
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5?excludePinnedData=false
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/41Ta2vbMBT9K0Wfo2DL8pMxVjo2yhoa1q6MhXy4luVErSIZWUnIQv77ru08xtaO
+        fTHyfZx7dO7RnqybCrysrj0pCAtYQgNOWfgYJgXLCx6M0yz5QUZEOPl2WZSNsyDuylSF+fvlJI9/
+        5j+/m923zZ2JMW5gJTFjMkOFVtTL1tNmCa2MMFnJVjjVeGUNKcxa6xEB4dUGO2rQrUTY9tqJJUaq
+        c8hYbCPFbD/MLJlMRJTUNK0CSTkvGYU6r2gOVZLGcRlwJi48Hjw4j79+15xo9Xi0RErjFZg16Een
+        FgvpjlVP0rU9v3BEGtuqgewsGAVzDIBDXI8lpNgfDhgR1hgpuqIudJyHhxWorm02nx8OI9JK75VZ
+        9CUCtJZuarUSO6S0te6l1nbbfnJ29YDo91vTk4ENKA2llrdmcjM9ytFhefBKfAQPJw2R0fncKDOk
+        zlxQuOe2u8OeLKXWdpipK4L8EW4z3Pe20zaKWRWHCaN5knHKa57TTESMJgyyqoyghjAlp509XRqH
+        0UekG7s2qBApEhR0kLYPkSJA8ktw3W6R1D/9eDHaf/rRWS1/U7OwRxVPgds3/No4+4z769PTsr7m
+        5uVu8nXhbz5Psku6E+9vvoyy4DHkRZQWPBvHWf4633NZUgTROMvT8/t5ZeDRt1/QTx4MmuZqutPK
+        tC9qd/UOqpUyH1bWmi24amykf3/xdoPyWwO6AxeXB/bKm+spWtffOUtD3CuPKA8T/AQx0LyOOI2Y
+        hCwtQyEgI73TPXT+nc3/2P8AevgFN4b1FWAEAAA=
+    headers:
+      CF-RAY:
+      - 9efdc4db88d52185-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:41 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=djPhLC29%2BkvFyFQy%2Fz36b8cpzJwjEhqEW0iS6lvn9Es8b1mqmXTz4N23XgRNWYqm9HoF57JEQqv0irOPWq7WeK%2FS1ZyJ0jeVsLAYCIUzhKXHTalIV88U7TzV5OewyypcvLmiBq%2Fakg%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"460-Yss4zt1Q0f2vPPD8rczoVBR3VR4"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name":"n8n-cli-test-phase3","nodes":[{"id":"b2e6c36f-7d0e-44b2-af9d-9ad6755b042c","name":"Start","type":"n8n-nodes-base.manualTrigger","typeVersion":1,"position":[0,0],"parameters":{}}],"connections":{"Start":{"main":[[]]}},"settings":{"callerPolicy":"workflowsFromSameOwner","availableInMCP":false},"staticData":null,"pinData":{"Start":[{"json":{"hello":"world"}}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '369'
+      Content-Type:
+      - application/json
+      Host:
+      - n8n.example.com
+      User-Agent:
+      - python-httpx/0.28.1
+      X-N8N-API-KEY:
+      - SCRUBBED
+      accept:
+      - application/json
+    method: PUT
+    uri: https://n8n.example.com/api/v1/workflows/OhM95z9zXnyUvLn5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/3VRXWvjMBD8L3q2gi1/+620FApXWmivlIY8rCU5UU+RjKQkpMH//dZ2kkKhb6vZ
+        2dnZ0YnsegFBiptAGsJiVtA4oyx5TYqG1U2WLFhSfpCIcCd/p6XVoorzkaYE9p82j3X+VX+9m+Pf
+        /R+TI25gK7FjKkO5VjRIH2i/AS9TbArpuVN9UNaQxuy0jgjwoPY40YH2EmX9jeMbRMQVMhbHSLM8
+        zTtbJgueFh0tRSxplrWMQlcLWoMoyjxv44zxbx8vAVzAZzj2F1uTHm3R0mILZgf61an1Wroz6006
+        P/lLItJbr2azyziKVwiAQ92AFNKchgERbo2RfCSN0HkfFltQ49hytRqGiHgZgjLricJBa+merVb8
+        iJYO1v3rtD34e2e3L6j+dDCTGdiD0tBq+WAeb5/PcYxaAYLidxDgkiE6uta9MnPr6gWD+/TjDSey
+        kVrbeacWBP2j3H6+92HMNs2ZyJOC0bqoMpp1WU0rnjJaMKhEm0IHSUkuf/b2PTivPivd2p3BhEhT
+        YqBztBNEmhgBGENYrn6IzBLDf6epxmylAgAA
+    headers:
+      CF-RAY:
+      - 9efdc4dc6d7f2353-IST
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 21 Apr 2026 16:29:41 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=F7Ox2oxdCxClfsbIAsCnmpS%2Fv1s1FOOM24NZWnVyZBUvALDtMCcM3PauGZ0bye5nbtR6siFB5Z8xkFmMIBZ%2BJpZ5BZTRYxjEGwl2Q5aC4dxhS7MZDpiru%2BYts28YTNJFZm3Ue577VA%3D%3D"}]}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      etag:
+      - W/"2a5-pSCu3KnSODCfIDjClfnJZyhS2S4"
+      vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

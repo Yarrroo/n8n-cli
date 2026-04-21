@@ -1,0 +1,37 @@
+# Secrets
+.env
+.env.local
+*.session
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Tooling
+.idea/
+.vscode/
+.DS_Store
+.playwright-mcp/
+
+# VCR cassettes must be scrubbed before commit
+tests/**/cassettes/*.unscrubbed.yaml
+
+# Local config dumps
+sessions/
+
+# Internal planning / research (kept on disk, not in public repo)
+claudedocs/
+task.md
+PRIVATE_NOTES.md
