@@ -69,9 +69,27 @@ def get(
     with Transport(inst, verbose=verbose) as t:
         ex = PublicApi(t).get_execution(execution_id, include_data=True)
 
+    # Surface node-level error cleanly when the node crashed — n8n typically
+    # records the error and emits no output items, so `extract_node_items`
+    # would otherwise raise "0 outputs out of range" internally.
+    node_err = runpath.extract_node_error(ex, node, run_index=run)
+
     try:
         items, run_meta = runpath.extract_node_items(ex, node, run_index=run, output_index=output)
     except runpath.NodeRunNotFoundError as exc:
+        if node_err is not None:
+            emit(
+                {
+                    "execution_id": execution_id,
+                    "node": node,
+                    "status": ex.get("status"),
+                    "run": run,
+                    "output_index": output,
+                    "error": node_err,
+                    "output": None,
+                }
+            )
+            return
         raise UserError(str(exc)) from exc
 
     opts = SummarizeOptions(
@@ -92,6 +110,7 @@ def get(
             "duration_ms": run_meta.get("executionTime"),
             "run": run,
             "output_index": output,
+            "error": node_err,
             "output": output_block,
         }
     )

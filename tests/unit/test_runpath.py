@@ -4,7 +4,48 @@ from __future__ import annotations
 
 import pytest
 
-from n8n_cli.core.runpath import NodeRunNotFoundError, executed_nodes, extract_node_items
+from n8n_cli.core.runpath import (
+    NodeRunNotFoundError,
+    executed_nodes,
+    extract_node_error,
+    extract_node_items,
+)
+
+
+def test_extract_node_error_returns_none_on_success() -> None:
+    ex = {"data": {"resultData": {"runData": {"A": [{"data": {"main": [[{"json": {}}]]}}]}}}}
+    assert extract_node_error(ex, "A") is None
+
+
+def test_extract_node_error_surfaces_error_record() -> None:
+    ex = {
+        "data": {
+            "resultData": {
+                "runData": {
+                    "HTTP Request": [
+                        {
+                            "error": {
+                                "message": "404 Not Found",
+                                "description": "bad path",
+                                "httpCode": "404",
+                                "name": "NodeApiError",
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    err = extract_node_error(ex, "HTTP Request")
+    assert err is not None
+    assert err["message"] == "404 Not Found"
+    assert err["httpCode"] == "404"
+
+
+def test_extract_node_error_missing_node_returns_none() -> None:
+    ex = {"data": {"resultData": {"runData": {}}}}
+    assert extract_node_error(ex, "nope") is None
+
 
 _EXECUTION = {
     "id": 1,

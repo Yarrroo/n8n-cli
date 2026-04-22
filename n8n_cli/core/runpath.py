@@ -29,6 +29,34 @@ class NodeRunNotFoundError(KeyError):
     """Raised when the requested node / run / output index doesn't exist."""
 
 
+def extract_node_error(
+    execution: dict[str, Any], node: str, *, run_index: int = 0
+) -> dict[str, Any] | None:
+    """Return the error record for a specific node run, or None if the run succeeded.
+
+    When a node crashes, n8n records the error under ``runData[node][run].error``
+    and typically emits no output items. Callers can use this to surface the
+    error cleanly instead of bailing on a missing output array.
+    """
+    run_data = (
+        (execution.get("data") or {}).get("resultData", {}).get("runData")
+        or (execution.get("data") or {}).get("runData")
+        or {}
+    )
+    runs = run_data.get(node) or []
+    if run_index >= len(runs):
+        return None
+    err = (runs[run_index] or {}).get("error")
+    if not isinstance(err, dict):
+        return None
+    return {
+        "message": err.get("message"),
+        "description": err.get("description"),
+        "httpCode": err.get("httpCode"),
+        "name": err.get("name"),
+    }
+
+
 def extract_node_items(
     execution: dict[str, Any],
     node: str,
