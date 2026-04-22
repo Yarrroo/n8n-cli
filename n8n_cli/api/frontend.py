@@ -206,18 +206,39 @@ class FrontendApi:
         """POST /rest/workflows/:id/run. Fires a manual execution, returns executionId.
 
         The UI uses the `triggerToStartFrom` shape — `startNodes` returns 500
-        on current n8n. We auto-pick the first Trigger-typed node when
-        `trigger_name` is None.
+        on current n8n. When ``trigger_name`` is None, we classify nodes via
+        the instance's node-type catalog (``group: ["trigger"]``) and pick
+        the sole trigger. If there are zero or more than one, the caller
+        gets a clear ``ApiError`` listing the candidates.
         """
         if trigger_name is None:
-            nodes = full_workflow.get("nodes") or []
-            trigger = next(
-                (n for n in nodes if isinstance(n.get("type"), str) and "Trigger" in n["type"]),
-                None,
+            from n8n_cli.core.node_types import classify_workflow_triggers
+
+            candidates = classify_workflow_triggers(
+                full_workflow, fapi=self, instance_name=self.t.instance_name
             )
-            if trigger is None and nodes:
-                trigger = nodes[0]
-            trigger_name = (trigger or {}).get("name")
+            # Disabled triggers cannot fire — drop them from auto-selection.
+            active_candidates = [c for c in candidates if not c.get("disabled")]
+            if len(active_candidates) == 0:
+                names = [c["name"] for c in candidates]
+                hint = (
+                    f"all {len(names)} trigger(s) are disabled: {names}"
+                    if names
+                    else "workflow has no trigger nodes"
+                )
+                raise ApiError(
+                    f"cannot auto-pick a trigger: {hint}. Pass --trigger <name> explicitly.",
+                    backend="frontend",
+                )
+            if len(active_candidates) > 1:
+                names = [c["name"] for c in active_candidates]
+                raise ApiError(
+                    f"workflow has {len(active_candidates)} active triggers — "
+                    f"pass --trigger <name> explicitly. "
+                    f"Candidates: {names}",
+                    backend="frontend",
+                )
+            trigger_name = active_candidates[0]["name"]
         if trigger_name is None:
             raise ApiError("workflow has no nodes to trigger", backend="frontend")
 
@@ -323,6 +344,25 @@ def latest_node_versions(catalog: list[dict[str, Any]]) -> dict[str, float]:
         if prev is None or best > prev:
             latest[name] = best
     return latest
+
+
+def trigger_node_types(catalog: list[dict[str, Any]]) -> set[str]:
+    """Return the set of node-type names whose ``group`` includes ``"trigger"``.
+
+    n8n classifies every node-type descriptor with a ``group`` list —
+    triggers have ``"trigger"`` in it. This is the authoritative way to
+    detect triggers across all node packages (core + provider-specific),
+    far safer than matching substrings in the type name.
+    """
+    out: set[str] = set()
+    for entry in catalog:
+        name = entry.get("name")
+        if not isinstance(name, str):
+            continue
+        group = entry.get("group")
+        if isinstance(group, list) and "trigger" in group:
+            out.add(name)
+    return out
 
 
 def iter_folder_tree(trees: list[dict[str, Any]]) -> Iterator[tuple[str, dict[str, Any]]]:

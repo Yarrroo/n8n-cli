@@ -21,7 +21,7 @@ from __future__ import annotations
 
 import time
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import yaml
 
@@ -54,8 +54,28 @@ BUILTIN_LATEST: dict[str, float] = {
     "n8n-nodes-base.emailSend": 2.1,
 }
 
+# Core trigger node types — used as a fallback when the live catalog is not
+# available. Extend conservatively; the authoritative list comes from the
+# instance's `/types/nodes.json` (group: ["trigger"]).
+BUILTIN_TRIGGERS: frozenset[str] = frozenset(
+    {
+        "n8n-nodes-base.manualTrigger",
+        "n8n-nodes-base.webhook",
+        "n8n-nodes-base.scheduleTrigger",
+        "n8n-nodes-base.executeWorkflowTrigger",
+        "n8n-nodes-base.chatTrigger",
+        "n8n-nodes-base.formTrigger",
+        "n8n-nodes-base.emailReadImap",
+        "n8n-nodes-base.errorTrigger",
+        "n8n-nodes-base.n8nTrigger",
+        "n8n-nodes-base.interval",
+        "n8n-nodes-base.cron",
+    }
+)
+
 _CACHE_TTL_SECONDS = 24 * 3600
 _PROCESS_CACHE: dict[str, dict[str, float]] = {}
+_TRIGGERS_PROCESS_CACHE: dict[str, set[str]] = {}
 
 
 def _cache_path(instance_name: str) -> Path:
@@ -87,6 +107,64 @@ def save_cached_map(instance_name: str, mapping: dict[str, float]) -> None:
         yaml.safe_dump({"_cached_at": time.time(), "map": mapping}, default_flow_style=False),
         encoding="utf-8",
     )
+
+
+def is_trigger_type(
+    node_type: str,
+    *,
+    fapi: FrontendApi | None = None,
+    instance_name: str | None = None,
+) -> bool:
+    """True if ``node_type`` is classified as a trigger on this instance.
+
+    Uses the same layered cache as ``resolve_latest_version``:
+      1. process cache (per-instance set of trigger type names),
+      2. live ``/types/nodes.json`` via ``fapi`` if cache is cold,
+      3. ``BUILTIN_TRIGGERS`` fallback.
+    """
+    key = instance_name or "_local"
+    triggers = _TRIGGERS_PROCESS_CACHE.get(key)
+    if triggers is None and fapi is not None:
+        try:
+            from n8n_cli.api.frontend import trigger_node_types
+
+            catalog = fapi.fetch_node_types_catalog()
+            triggers = trigger_node_types(catalog)
+            _TRIGGERS_PROCESS_CACHE[key] = triggers
+        except Exception:
+            triggers = None
+    if triggers is not None:
+        return node_type in triggers
+    return node_type in BUILTIN_TRIGGERS
+
+
+def classify_workflow_triggers(
+    workflow: dict[str, Any],
+    *,
+    fapi: FrontendApi | None = None,
+    instance_name: str | None = None,
+) -> list[dict[str, Any]]:
+    """Return the list of trigger nodes in ``workflow`` as row dicts.
+
+    Each row: ``{"name", "type", "typeVersion", "disabled"}``. Disabled
+    triggers are included so callers can decide whether to skip them.
+    """
+    nodes = workflow.get("nodes") or []
+    out: list[dict[str, Any]] = []
+    for n in nodes:
+        t = n.get("type")
+        if not isinstance(t, str):
+            continue
+        if is_trigger_type(t, fapi=fapi, instance_name=instance_name):
+            out.append(
+                {
+                    "name": n.get("name"),
+                    "type": t,
+                    "typeVersion": n.get("typeVersion"),
+                    "disabled": bool(n.get("disabled", False)),
+                }
+            )
+    return out
 
 
 def resolve_latest_version(

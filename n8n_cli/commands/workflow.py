@@ -802,6 +802,27 @@ def unlink(
     )
 
 
+@app.command("triggers")
+def triggers(
+    workflow_id: Annotated[str, typer.Argument(help="Workflow ID.")],
+    instance_name: InstanceOpt = None,
+    verbose: VerboseOpt = False,
+) -> None:
+    """List trigger nodes in a workflow (via the instance node-type catalog).
+
+    Use this before ``workflow execute`` when a workflow has multiple
+    triggers to pick the right one via ``--trigger <name>``.
+    """
+    from n8n_cli.api.frontend import FrontendApi
+    from n8n_cli.core.node_types import classify_workflow_triggers
+
+    name_key, inst = store.resolve_active(instance_name)
+    with Transport(inst, instance_name=name_key, verbose=verbose) as t:
+        wf = PublicApi(t).get_workflow(workflow_id)
+        rows = classify_workflow_triggers(wf, fapi=FrontendApi(t), instance_name=name_key)
+    emit(rows)
+
+
 @app.command("projects")
 def projects(
     workflow_id: Annotated[str, typer.Option("--id", help="Workflow ID.")],

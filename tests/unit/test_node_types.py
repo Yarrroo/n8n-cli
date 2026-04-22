@@ -115,6 +115,161 @@ def test_fetch_node_types_catalog_propagates_http_errors() -> None:
         FrontendApi(t).fetch_node_types_catalog()
 
 
+def test_trigger_node_types_from_catalog() -> None:
+    from n8n_cli.api.frontend import trigger_node_types
+
+    catalog = [
+        {"name": "n8n-nodes-base.webhook", "group": ["trigger"]},
+        {"name": "n8n-nodes-base.scheduleTrigger", "group": ["trigger", "schedule"]},
+        {"name": "n8n-nodes-base.httpRequest", "group": ["output"]},
+        {"name": "n8n-nodes-base.set", "group": ["input"]},
+        {"name": "n8n-nodes-base.customTrigger", "group": ["trigger"]},
+        {"name": "no-group-node"},  # missing group — not a trigger
+        {"group": ["trigger"]},  # missing name — ignored
+    ]
+    out = trigger_node_types(catalog)
+    assert "n8n-nodes-base.webhook" in out
+    assert "n8n-nodes-base.scheduleTrigger" in out
+    assert "n8n-nodes-base.customTrigger" in out
+    assert "n8n-nodes-base.httpRequest" not in out
+    assert "n8n-nodes-base.set" not in out
+    assert "no-group-node" not in out
+
+
+def test_is_trigger_type_falls_back_to_builtins() -> None:
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+    # webhook is in BUILTIN_TRIGGERS — must classify even without fapi
+    assert node_types.is_trigger_type("n8n-nodes-base.webhook") is True
+    assert node_types.is_trigger_type("n8n-nodes-base.manualTrigger") is True
+    assert node_types.is_trigger_type("n8n-nodes-base.httpRequest") is False
+
+
+def test_is_trigger_type_hits_live_catalog_and_caches() -> None:
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+    fapi = MagicMock()
+    fapi.fetch_node_types_catalog.return_value = [
+        {"name": "custom.slackTrigger", "group": ["trigger"]},
+        {"name": "custom.notATrigger", "group": ["output"]},
+    ]
+    assert node_types.is_trigger_type("custom.slackTrigger", fapi=fapi, instance_name="x") is True
+    # Second call — cached, no re-fetch.
+    assert node_types.is_trigger_type("custom.notATrigger", fapi=fapi, instance_name="x") is False
+    fapi.fetch_node_types_catalog.assert_called_once()
+
+
+def test_classify_workflow_triggers_extracts_triggers_only() -> None:
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+    wf = {
+        "nodes": [
+            {"name": "A", "type": "n8n-nodes-base.webhook", "typeVersion": 2},
+            {"name": "B", "type": "n8n-nodes-base.scheduleTrigger"},
+            {"name": "C", "type": "n8n-nodes-base.httpRequest"},
+            {"name": "D", "type": "n8n-nodes-base.webhook", "disabled": True},
+        ]
+    }
+    rows = node_types.classify_workflow_triggers(wf)
+    names = [r["name"] for r in rows]
+    assert names == ["A", "B", "D"]
+    assert rows[-1]["disabled"] is True
+
+
+def test_run_workflow_raises_on_multiple_active_triggers() -> None:
+    import httpx
+
+    from n8n_cli.api.errors import ApiError
+    from n8n_cli.api.frontend import FrontendApi
+    from n8n_cli.api.transport import Transport
+    from n8n_cli.config.instance import Instance
+
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+
+    inst = Instance(url="https://n8n.example.com", api_key="k")  # type: ignore[arg-type]
+    t = Transport(inst)
+    t._client = httpx.Client(
+        base_url="https://n8n.example.com",
+        transport=httpx.MockTransport(lambda _r: httpx.Response(200, json={})),
+    )
+    full = {
+        "id": "wf",
+        "name": "X",
+        "nodes": [
+            {"name": "Webhook A", "type": "n8n-nodes-base.webhook"},
+            {"name": "Webhook B", "type": "n8n-nodes-base.webhook"},
+        ],
+        "connections": {},
+        "settings": {},
+    }
+    with pytest.raises(ApiError) as excinfo:
+        FrontendApi(t).run_workflow("wf", full_workflow=full)
+    msg = str(excinfo.value.message)
+    assert "2 active triggers" in msg
+    assert "Webhook A" in msg and "Webhook B" in msg
+
+
+def test_run_workflow_skips_disabled_triggers_automatically() -> None:
+    import httpx
+
+    from n8n_cli.api.frontend import FrontendApi
+    from n8n_cli.api.transport import Transport
+    from n8n_cli.config.instance import Instance
+
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+    captured: dict = {}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        import json as _j
+
+        captured["body"] = _j.loads(req.content.decode())
+        return httpx.Response(200, json={"data": {"executionId": "1"}})
+
+    inst = Instance(url="https://n8n.example.com", api_key="k")  # type: ignore[arg-type]
+    t = Transport(inst)
+    t._client = httpx.Client(
+        base_url="https://n8n.example.com", transport=httpx.MockTransport(handler)
+    )
+    full = {
+        "id": "wf",
+        "name": "X",
+        "nodes": [
+            {"name": "Disabled Webhook", "type": "n8n-nodes-base.webhook", "disabled": True},
+            {"name": "Active Webhook", "type": "n8n-nodes-base.webhook"},
+        ],
+        "connections": {},
+        "settings": {},
+    }
+    FrontendApi(t).run_workflow("wf", full_workflow=full)
+    assert captured["body"]["triggerToStartFrom"]["name"] == "Active Webhook"
+
+
+def test_run_workflow_errors_when_all_triggers_disabled() -> None:
+    import httpx
+
+    from n8n_cli.api.errors import ApiError
+    from n8n_cli.api.frontend import FrontendApi
+    from n8n_cli.api.transport import Transport
+    from n8n_cli.config.instance import Instance
+
+    node_types._TRIGGERS_PROCESS_CACHE.clear()
+    inst = Instance(url="https://n8n.example.com", api_key="k")  # type: ignore[arg-type]
+    t = Transport(inst)
+    t._client = httpx.Client(
+        base_url="https://n8n.example.com",
+        transport=httpx.MockTransport(lambda _r: httpx.Response(200, json={})),
+    )
+    full = {
+        "id": "wf",
+        "name": "X",
+        "nodes": [
+            {"name": "Webhook", "type": "n8n-nodes-base.webhook", "disabled": True},
+        ],
+        "connections": {},
+        "settings": {},
+    }
+    with pytest.raises(ApiError) as excinfo:
+        FrontendApi(t).run_workflow("wf", full_workflow=full)
+    assert "disabled" in str(excinfo.value.message).lower()
+
+
 def test_fetch_node_types_catalog_success() -> None:
     import httpx
 
