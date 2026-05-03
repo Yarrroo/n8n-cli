@@ -507,13 +507,22 @@ def unarchive(
 def _set_archived(
     workflow_id: str, value: bool, *, instance_name: str | None, verbose: bool
 ) -> None:
-    from n8n_cli.core.patcher import WorkflowPatcher
+    """Toggle isArchived via the dedicated frontend endpoints.
 
-    _, inst = store.resolve_active(instance_name)
-    with Transport(inst, verbose=verbose) as t:
-        patcher = WorkflowPatcher(PublicApi(t), workflow_id)
-        patcher.set_archived(value)
-        patcher.commit()
+    The previous fetch+PUT flow failed with 400 "Cannot update an archived
+    workflow" when toggling FROM archived — n8n's PUT handler refuses any
+    update on archived workflows. The dedicated ``/archive`` / ``/unarchive``
+    POST endpoints work in both directions.
+    """
+    from n8n_cli.api.frontend import FrontendApi
+
+    name, inst = store.resolve_active(instance_name)
+    with Transport(inst, instance_name=name, verbose=verbose) as t:
+        fapi = FrontendApi(t)
+        if value:
+            fapi.archive_workflow(workflow_id)
+        else:
+            fapi.unarchive_workflow(workflow_id)
     emit({"id": workflow_id, "isArchived": value})
 
 

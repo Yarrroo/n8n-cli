@@ -200,6 +200,26 @@ class FrontendApi:
         body = self.t.patch(f"/rest/workflows/{workflow_id}", json=payload)
         return cast(dict[str, Any], body.get("data") or body)
 
+    # --- archive / unarchive -------------------------------------
+
+    def archive_workflow(self, workflow_id: str) -> dict[str, Any]:
+        """POST /rest/workflows/:id/archive. Sets isArchived=true.
+
+        Distinct from a fetch+PUT-with-isArchived flow, which n8n forbids
+        when toggling FROM the archived state ("Cannot update an archived
+        workflow"). The dedicated endpoints work in both directions.
+        """
+        body = self.t.post(f"/rest/workflows/{workflow_id}/archive")
+        return cast(dict[str, Any], body.get("data") or body)
+
+    def unarchive_workflow(self, workflow_id: str) -> dict[str, Any]:
+        """POST /rest/workflows/:id/unarchive. Sets isArchived=false.
+
+        Required path: PUT-based unarchive returns 400 from n8n.
+        """
+        body = self.t.post(f"/rest/workflows/{workflow_id}/unarchive")
+        return cast(dict[str, Any], body.get("data") or body)
+
     # --- credentials (frontend covers what public API lacks) -----
 
     def list_credentials(self, *, take: int = 200) -> list[dict[str, Any]]:

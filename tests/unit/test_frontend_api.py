@@ -107,3 +107,116 @@ def test_login_stores_cookie_from_set_cookie_header() -> None:
     cookies = [c for c in t._client.cookies.jar if c.name == "n8n-auth"]
     assert len(cookies) == 1
     assert cookies[0].value == "JWT123"
+
+
+# --- MFA login --------------------------------------------------------
+
+
+def test_login_raises_mfa_required_on_code_998() -> None:
+    """n8n returns 401 + {'code': 998, 'message': 'MFA Error'} when the
+    account has 2FA enabled and the request omits mfaCode/mfaRecoveryCode.
+    The CLI must surface this as MfaRequiredError, not generic AuthError,
+    so the command layer can prompt for a code.
+    """
+    from n8n_cli.api.errors import MfaRequiredError
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(401, json={"code": 998, "message": "MFA Error"})
+
+    t = _make_transport(httpx.MockTransport(handler))
+    with pytest.raises(MfaRequiredError):
+        FrontendApi(t).login("x@y", "ok")
+
+
+def test_login_with_mfa_code_sends_field_and_succeeds() -> None:
+    captured: dict = {}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if req.url.path.endswith("/rest/login"):
+            import json
+
+            captured["body"] = json.loads(req.content.decode())
+            return httpx.Response(
+                200,
+                headers={"set-cookie": "n8n-auth=JWT; Path=/; HttpOnly"},
+                json={"data": {"id": "u1", "email": "x@y", "role": "global:owner"}},
+            )
+        return httpx.Response(200, json={"data": {"id": "proj-1"}})
+
+    t = _make_transport(httpx.MockTransport(handler))
+    FrontendApi(t).login("x@y", "ok", mfa_code="123456")
+    assert captured["body"]["mfaCode"] == "123456"
+    assert "mfaRecoveryCode" not in captured["body"]
+
+
+def test_login_with_recovery_code_sends_field() -> None:
+    captured: dict = {}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        if req.url.path.endswith("/rest/login"):
+            import json
+
+            captured["body"] = json.loads(req.content.decode())
+            return httpx.Response(
+                200,
+                headers={"set-cookie": "n8n-auth=JWT; Path=/"},
+                json={"data": {"id": "u1"}},
+            )
+        return httpx.Response(200, json={"data": {"id": "p"}})
+
+    t = _make_transport(httpx.MockTransport(handler))
+    FrontendApi(t).login("x@y", "ok", mfa_recovery_code="recovery-abc")
+    assert captured["body"]["mfaRecoveryCode"] == "recovery-abc"
+    assert "mfaCode" not in captured["body"]
+
+
+def test_login_with_bad_mfa_code_raises_authn_not_mfa_required() -> None:
+    """When a code WAS sent and n8n returns 401, the message should reflect
+    invalid-code, not MFA-required, so we don't loop the prompt."""
+    from n8n_cli.api.errors import AuthError, MfaRequiredError
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            401, json={"status": "error", "message": "Invalid mfa token or recovery code"}
+        )
+
+    t = _make_transport(httpx.MockTransport(handler))
+    with pytest.raises(AuthError) as exc_info:
+        FrontendApi(t).login("x@y", "ok", mfa_code="000000")
+    # Bad-code error must NOT be classified as MFA-required (no re-prompt loop)
+    assert not isinstance(exc_info.value, MfaRequiredError)
+
+
+# --- archive / unarchive (dedicated frontend endpoints) --------------
+
+
+def test_archive_workflow_posts_to_archive_endpoint() -> None:
+    captured: dict = {}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        captured["method"] = req.method
+        captured["path"] = req.url.path
+        return httpx.Response(200, json={"data": {"id": "w1", "isArchived": True}})
+
+    t = _make_transport(httpx.MockTransport(handler))
+    result = FrontendApi(t).archive_workflow("w1")
+    assert captured["method"] == "POST"
+    assert captured["path"] == "/rest/workflows/w1/archive"
+    assert result["isArchived"] is True
+
+
+def test_unarchive_workflow_posts_to_unarchive_endpoint() -> None:
+    """Critical: the PUT-based flow returns 400 on archived workflows.
+    Only the dedicated POST endpoint can flip isArchived back to false."""
+    captured: dict = {}
+
+    def handler(req: httpx.Request) -> httpx.Response:
+        captured["method"] = req.method
+        captured["path"] = req.url.path
+        return httpx.Response(200, json={"data": {"id": "w1", "isArchived": False}})
+
+    t = _make_transport(httpx.MockTransport(handler))
+    result = FrontendApi(t).unarchive_workflow("w1")
+    assert captured["method"] == "POST"
+    assert captured["path"] == "/rest/workflows/w1/unarchive"
+    assert result["isArchived"] is False
