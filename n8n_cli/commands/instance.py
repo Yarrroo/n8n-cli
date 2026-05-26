@@ -12,6 +12,7 @@ import sys
 from typing import Annotated
 
 import typer
+from pydantic import SecretStr
 
 from n8n_cli.api.errors import UserError
 from n8n_cli.config import store
@@ -114,7 +115,7 @@ def patch(
         inst = inst.model_copy(update={"email": email})
     if api_key is not None:
         resolved = _read_api_key(None) if api_key == "-" else api_key
-        inst = inst.model_copy(update={"api_key": resolved})
+        inst = inst.model_copy(update={"api_key": SecretStr(resolved) if resolved else None})
     cfg.instances[name] = inst
     store.save(cfg)
     emit({"updated": name, **inst.dump_public()})
