@@ -174,6 +174,41 @@ instance
 - **Exploration tactic for frontend API**: when a capability is unclear, grep the saved spec + read the relevant controller on GitHub (`n8n-io/n8n/packages/cli/src/controllers/`). Log every newly-discovered endpoint in this file under the frontend section above so the spec grows as we go.
 - **Success criterion reminder**: `pip install` works; covers all listed commands incl. folders; dual-API routing works; 2MB+ node output summarizes to ≤1KB by default; debug loop works end-to-end against 2+ instances.
 
+## Status
+
+v0.1.0 — first public release. Full command surface implemented, 134 tests green, dual-API routing live, summarizer meets 2 MB → ≤1 KB budget, canonical debug loop works end-to-end. See [CHANGELOG.md](CHANGELOG.md) for details.
+
+## Development workflows
+
+This project is driven by the `dev-` workflow family — Claude skills, each a
+self-contained recipe for one lifecycle stage. **Reach for them proactively:
+when a situation below matches, invoke the skill rather than improvising.**
+Trigger with `/<name>` or by describing the task; each adapts its depth to the
+size of the work.
+
+    dev-init → dev-understand → dev-build / dev-fix / dev-improve → dev-close → dev-ship → dev-deploy → dev-watch
+     (create)    (orient)            (add / correct / refactor)       (done)     (merged)   (live)      (observe)
+
+| Situation (you notice…) | Reach for |
+|---|---|
+| Starting a brand-new repo or project | `dev-init` |
+| About to change code you don't know; "how does X work" | `dev-understand` |
+| Adding new behavior — feature, component, endpoint, system | `dev-build` |
+| A bug, crash, failing test, or wrong output — even mid-task | `dev-fix` |
+| Working code that needs refactor/cleanup, behavior unchanged | `dev-improve` |
+| Work feels finished — docs/tests/summary before calling it done | `dev-close` |
+| Done work that should be reviewed, committed, PR'd | `dev-ship` |
+| A change that must go live — and be verified actually healthy | `dev-deploy` |
+| A running system that needs watching (soak, error rates, logs) | `dev-watch` |
+
+The axes are deliberate: **build** = new behavior, **fix** = wrong behavior,
+**improve** = internals only; and **close** (done) ≠ **ship** (merged) ≠
+**deploy** (live). `dev-build`/`dev-fix`/`dev-improve` call `dev-close` as their
+final stage; outward-facing steps (commit/PR, deploy) pause for approval —
+unless this CLAUDE.md's Boundaries declare **Git autonomy** (then verified
+work commits/merges/pushes automatically; deploy always asks unless
+separately declared).
+
 ## Anti-patterns to avoid
 
 - ❌ Caching workflows locally by default (breaks "n8n is source of truth"). A folder-path cache per session is fine; a workflow cache isn't.
@@ -184,7 +219,3 @@ instance
 - ❌ Inventing verbs outside the reference list.
 - ❌ Building MCP/RBAC/webhook features now.
 - ❌ Using `/rest` without a session-refresh check — cookies expire, re-login path must be automatic & visible in `--verbose`.
-
-## Status
-
-v0.1.0 — first public release. Full command surface implemented, 134 tests green, dual-API routing live, summarizer meets 2 MB → ≤1 KB budget, canonical debug loop works end-to-end. See [CHANGELOG.md](CHANGELOG.md) for details.
