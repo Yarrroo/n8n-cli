@@ -201,7 +201,8 @@ size of the work.
 | A change that must go live — and be verified actually healthy | `dev-deploy` |
 | A running system that needs watching (soak, error rates, logs) | `dev-watch` |
 | Building/changing browser UI — must hold on desktop, tablet, phone | `dev-ux` |
-| Merged PRs left stale feature branches piling up | `dev-tidy` |
+| Stale branches — or open PRs — piling up after merges | `dev-tidy` |
+| A teammate's PR needs review against the design | `dev-review` |
 
 The axes are deliberate: **build** = new behavior, **fix** = wrong behavior,
 **improve** = internals only; and **close** (done) ≠ **ship** (merged) ≠
@@ -210,7 +211,7 @@ final stage; outward-facing steps (commit/PR, deploy) pause for approval —
 unless this CLAUDE.md's Boundaries declare **Git autonomy** (then verified
 work commits/merges/pushes automatically; deploy always asks unless
 separately declared).
-<!-- dev-workflows-block: v0414a61 -->
+<!-- dev-workflows-block: v014a034 -->
 
 ## Anti-patterns to avoid
 
