@@ -192,26 +192,31 @@ size of the work.
 | Situation (you notice…) | Reach for |
 |---|---|
 | Starting a brand-new repo or project | `dev-init` |
+| A request that could take more than one shape — classify + route it | `dev-intake` |
 | About to change code you don't know; "how does X work" | `dev-understand` |
 | Adding new behavior — feature, component, endpoint, system | `dev-build` |
 | A bug, crash, failing test, or wrong output — even mid-task | `dev-fix` |
 | Working code that needs refactor/cleanup, behavior unchanged | `dev-improve` |
 | Work feels finished — docs/tests/summary before calling it done | `dev-close` |
+| A diff of your own you want checked for bugs before it leaves | `dev-vet` |
 | Done work that should be reviewed, committed, PR'd | `dev-ship` |
 | A change that must go live — and be verified actually healthy | `dev-deploy` |
 | A running system that needs watching (soak, error rates, logs) | `dev-watch` |
 | Building/changing browser UI — must hold on desktop, tablet, phone | `dev-ux` |
 | Stale branches — or open PRs — piling up after merges | `dev-tidy` |
 | A teammate's PR needs review against the design | `dev-review` |
+| Inherited code — a fork, template, or handed-over repo — to align | `dev-adopt` |
 
 The axes are deliberate: **build** = new behavior, **fix** = wrong behavior,
 **improve** = internals only; and **close** (done) ≠ **ship** (merged) ≠
 **deploy** (live). `dev-build`/`dev-fix`/`dev-improve` call `dev-close` as their
-final stage; outward-facing steps (commit/PR, deploy) pause for approval —
-unless this CLAUDE.md's Boundaries declare **Git autonomy** (then verified
-work commits/merges/pushes automatically; deploy always asks unless
-separately declared).
-<!-- dev-workflows-block: v014a034 -->
+final stage. **Verified work commits, merges, pushes and deploys without
+asking** — that is the default and needs no declaration. A repo takes
+permissions away in `.claude/policy.md` (an *exceptions* file, never a grant);
+absent that, the only things still gated are the irreversible ones: force-push,
+history rewrite, deletions, migrations, public links, anyone else's artifacts.
+No green gate, no autonomy — evidence is what makes it safe, not permission.
+<!-- dev-workflows-block: va38149f -->
 
 ## Anti-patterns to avoid
 
