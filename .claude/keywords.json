@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "repo": "n8n-cli",
+  "generated": "2026-08-03",
+  "generator": "dev-onboard",
+  "shape": "A CLI making n8n workflows AI-manageable. n8n stores workflows as monolithic JSON and execution data can be multi-MB per node, which blows an LLM context window; this is a smart client over n8n's REST API offering node-, connection-, pin-data- and folder-level operations by parsing client-side and putting the full workflow back.",
+  "terms": [
+    {
+      "term": "n8n",
+      "rank": 1,
+      "kind": "vendor",
+      "gloss": "The automation platform this manages",
+      "spoken_as": [
+        "n-eight-n"
+      ],
+      "heard_as": [
+        "n eight n",
+        "en eight en",
+        "naten"
+      ]
+    },
+    {
+      "term": "workflow",
+      "rank": 2,
+      "kind": "domain",
+      "gloss": "The unit n8n stores as monolithic JSON",
+      "heard_as": [
+        "workflows",
+        "work flow"
+      ]
+    },
+    {
+      "term": "node",
+      "rank": 3,
+      "kind": "domain",
+      "gloss": "One step inside a workflow",
+      "heard_as": [
+        "nodes"
+      ]
+    },
+    {
+      "term": "pin-data",
+      "rank": 4,
+      "kind": "domain",
+      "gloss": "Frozen sample data attached to a node",
+      "heard_as": [
+        "pin data",
+        "pinned data"
+      ]
+    },
+    {
+      "term": "execution",
+      "rank": 5,
+      "kind": "domain",
+      "gloss": "One run of a workflow, whose data can be huge",
+      "heard_as": [
+        "executions"
+      ]
+    },
+    {
+      "term": "folder",
+      "rank": 6,
+      "kind": "domain",
+      "gloss": "How workflows are organised in newer n8n",
+      "heard_as": [
+        "folders"
+      ]
+    },
+    {
+      "term": "JWT",
+      "rank": 7,
+      "kind": "domain",
+      "gloss": "The auth token for the API",
+      "spoken_as": [
+        "J W T"
+      ],
+      "heard_as": [
+        "J W T",
+        "jot"
+      ]
+    },
+    {
+      "term": "VCR",
+      "rank": 8,
+      "kind": "domain",
+      "gloss": "The recorded-HTTP test approach",
+      "spoken_as": [
+        "V C R"
+      ],
+      "heard_as": [
+        "V C R"
+      ]
+    },
+    {
+      "term": "n8n-cli",
+      "rank": 9,
+      "kind": "repo",
+      "gloss": "This repo",
+      "spoken_as": [
+        "n-eight-n C L I"
+      ],
+      "heard_as": [
+        "n eight n C L I"
+      ]
+    }
+  ]
+}
