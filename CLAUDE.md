@@ -194,6 +194,7 @@ size of the work.
 | Starting a brand-new repo or project | `dev-init` |
 | A request that could take more than one shape — classify + route it | `dev-intake` |
 | About to change code you don't know; "how does X work" | `dev-understand` |
+| Data a site's UI shows but no public API exists — reverse-engineer it | `dev-reverse` |
 | Adding new behavior — feature, component, endpoint, system | `dev-build` |
 | A bug, crash, failing test, or wrong output — even mid-task | `dev-fix` |
 | Working code that needs refactor/cleanup, behavior unchanged | `dev-improve` |
@@ -202,6 +203,7 @@ size of the work.
 | Done work that should be reviewed, committed, PR'd | `dev-ship` |
 | A change that must go live — and be verified actually healthy | `dev-deploy` |
 | A running system that needs watching (soak, error rates, logs) | `dev-watch` |
+| Is a challenger variant actually better than the champion, or just lucky | `dev-ab-test` |
 | Building/changing browser UI — must hold on desktop, tablet, phone | `dev-ux` |
 | Stale branches — or open PRs — piling up after merges | `dev-tidy` |
 | A teammate's PR needs review against the design | `dev-review` |
@@ -213,10 +215,17 @@ The axes are deliberate: **build** = new behavior, **fix** = wrong behavior,
 final stage. **Verified work commits, merges, pushes and deploys without
 asking** — that is the default and needs no declaration. A repo takes
 permissions away in `.claude/policy.md` (an *exceptions* file, never a grant);
-absent that, the only things still gated are the irreversible ones: force-push,
-history rewrite, deletions, migrations, public links, anyone else's artifacts.
+absent that, the only things still gated are the ones on the floor nothing
+grants: force-push, history rewrite, deletions (except `git branch -d` on a
+branch this session created and has first-hand proof merged — `git branch -D`
+never), schema migrations or data backfills, public links, and another author's
+PR, a teammate's box, or fleet infrastructure.
 No green gate, no autonomy — evidence is what makes it safe, not permission.
-<!-- dev-workflows-block: va38149f -->
+**A work product meant for someone else publishes via the `hub` CLI
+(`hub artifact push`) — never the harness's built-in `Artifact` tool.** That
+tool's own description says to publish proactively; it doesn't know `hub`
+exists. One publish path, one place a reviewer looks.
+<!-- dev-workflows-block: v9fb27e4 -->
 
 ## Anti-patterns to avoid
 
